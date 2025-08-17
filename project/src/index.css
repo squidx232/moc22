@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-background-alt text-secondary;
+}
+
+/* Base button styles */
+.btn {
+  @apply inline-flex items-center justify-center;
+  @apply font-medium rounded-lg shadow-md;
+  @apply py-3 px-6; /* 12px vertical, 24px horizontal */
+  @apply transition-all duration-150 ease-in-out;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  @apply border border-transparent; 
+  @apply select-none; 
+}
+
+/* Primary button (Gold) */
+.btn-primary {
+  @apply bg-primary text-primary-content; /* Gold bg, Off-black text */
+  @apply hover:bg-primary-hover hover:shadow-lg;
+  @apply focus:ring-primary-hover; 
+}
+
+/* Secondary button (Black/Accent) */
+.btn-secondary {
+  @apply bg-accent text-accent-content; /* Off-black bg, Off-white text */
+  @apply hover:bg-accent-hover hover:shadow-lg;
+  @apply focus:ring-accent-hover;
+}
+
+/* Outline Primary button (Gold outline) */
+.btn-outline-primary {
+  @apply bg-transparent text-primary border-primary; /* Gold text and border */
+  @apply hover:bg-primary/10 hover:text-primary-hover hover:border-primary-hover;
+  @apply focus:ring-primary/50;
+}
+
+/* Danger button */
+.btn-danger {
+  @apply bg-danger text-danger-content border-danger;
+  @apply hover:bg-danger-hover hover:shadow-lg;
+  @apply focus:ring-danger;
+}
+
+/* Small button variant */
+.btn-sm {
+  @apply py-2 px-4 text-sm;
+}
+
+/* Input field styling */
+.input-field {
+  @apply block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm text-secondary-dark; /* Gold focus */
+}
+
+/* Link styling */
+a {
+  @apply text-primary hover:text-primary-hover transition-colors; /* Gold links, darker gold hover */
+}
+
+/* Styling for the overall page, including where SignInForm might be rendered */
+.page-container {
+  @apply min-h-screen flex flex-col items-center justify-center p-4;
+}
+
+.form-container {
+  @apply bg-white p-8 rounded-xl shadow-2xl w-full max-w-md;
+}
+
+.form-title {
+  @apply text-3xl font-bold text-primary mb-3 text-center; /* Gold title */
+}
+
+.form-subtitle {
+  @apply text-secondary text-center mb-8;
+}
+
+/* Auth-specific input styling */
+.auth-input-field {
+  @apply block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-secondary-dark transition-all duration-200;
+}
+
+/* Auth button styling */
+.auth-button {
+  @apply w-full bg-primary text-primary-content font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-primary-hover hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Navigation button styles */
+.nav-button {
+  @apply px-3 py-2 text-sm font-medium text-secondary-dark hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-150 whitespace-nowrap;
+}
+
+.nav-button-active {
+  @apply bg-primary text-primary-content hover:bg-primary-hover hover:text-primary-content;
+}
+
+/* Success button variant */
+.btn-success {
+  @apply bg-green-600 text-white border-green-600 hover:bg-green-700 hover:border-green-700 focus:ring-green-500;
+}
+
+/* Extra small button variant */
+.btn-xs {
+  @apply py-1 px-2 text-xs;
+}
+
+/* Outline secondary button */
+.btn-outline-secondary {
+  @apply bg-transparent text-secondary-dark border-gray-300 hover:bg-gray-50 hover:text-secondary-dark hover:border-gray-400 focus:ring-gray-300;
+}
+
+/* Loader animation */
+.loader {
+  border-top-color: #ffffff;
+  animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Ensure toast notifications are visible and properly styled */
+[data-sonner-toaster] {
+  z-index: 9999 !important;
+}
+
+[data-sonner-toast] {
+  background: white !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-sonner-toast][data-type="error"] {
+  border-left: 4px solid #ef4444 !important;
+}
+
+[data-sonner-toast][data-type="success"] {
+  border-left: 4px solid #10b981 !important;
+}
+
+[data-sonner-toast][data-type="info"] {
+  border-left: 4px solid #3b82f6 !important;
+}
